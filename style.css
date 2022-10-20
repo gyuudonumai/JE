@@ -1,0 +1,23 @@
+#start {
+  display: inline-block;
+  font-size: 10pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 12px 12px;
+  background: #ffd800;
+  color: #cd0000;
+  line-height: 0.1em;
+  transition: 0.3s;
+  box-shadow: 3px 3px #666666;
+  text-decoration: none;
+  border: 2px solid #ffd800;
+}
+#start:hover {
+  box-shadow: none;
+  color: #ffd800;
+  background: #cd0000;
+}
+
+.center {
+  text-align: right;
+}/*# sourceMappingURL=style.css.map */

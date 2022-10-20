@@ -1,0 +1,27 @@
+@mixin baseButton($bColor, $lColor: white) {
+  display: inline-block;
+  font-size: 10pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 12px 12px;
+  background: $bColor;
+  color: $lColor;
+  line-height: 0.1em;
+  transition: 0.3s;
+  box-shadow: 3px 3px #666666;
+  text-decoration: none;
+  border: 2px solid $bColor;
+  &:hover {
+    box-shadow: none;
+    color: $bColor;
+    background: $lColor;
+  }
+}
+
+#start {
+  @include baseButton(#ffd800, #cd0000);
+}
+
+.center {
+  text-align: right;
+}

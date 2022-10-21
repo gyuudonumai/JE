@@ -1,3 +1,7 @@
+const deen = () => {
+  document.getElementById("start_audio").currentTime = 0; //連続クリックに対応
+  document.getElementById("start_audio").play();
+};
 var epil =
   "第一次世界大戦後混沌としていたロシア帝国にある男が現れた。" +
   "彼の名はレーニン。彼は、ロシア帝国のあった場所に全員が平等な夢のような国を作ろうと試みた。" +
@@ -5,8 +9,7 @@ var epil =
   "レーニン亡き後、ヨシフ・スターリンがソ連を継いだ。これは、そのヨシフおじさんのパーフェクト計算教室である";
 document.querySelector("#start").addEventListener("click", (e) => {
   e.preventDefault();
-  document.getElementById("start_audio").currentTime = 0; //連続クリックに対応
-  document.getElementById("start_audio").play(); //クリックしたら音を再生
+  deen();
 });
 
 window.onload = function () {
@@ -17,5 +20,8 @@ window.onload = function () {
     padding: "0rem",
     backdrop: "rgba(80,80,80,0.99)",
     background: "#ffd800",
+  });
+  document.querySelector(".swal2-confirm").addEventListener("click", (e) => {
+    deen();
   });
 };

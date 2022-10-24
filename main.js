@@ -42,8 +42,15 @@ const whatName = () => {
       background: "#ffd800",
       input: "text",
       inputValidator: (value) => {
-        if (!value || value.length > 8) {
-          return "八文字以下でオナシャス";
+        if (
+          !value ||
+          value.length > 8 ||
+          value == "トロツキー" ||
+          value == "チャーチル"
+        ) {
+          if (value == "トロツキー" || value == "チャーチル") {
+            return "粛清確定な";
+          }
         }
       },
     }).then((result) => {

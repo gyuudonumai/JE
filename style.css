@@ -20,4 +20,12 @@
 
 .center {
   text-align: right;
+}
+
+@font-face {
+  font-family: "dotfont";
+  src: url("./PixelMplus-20130602/PixelMplus12-Regular.ttf") format("truetype");
+}
+body {
+  font-family: "dotfont";
 }/*# sourceMappingURL=style.css.map */

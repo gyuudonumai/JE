@@ -1,17 +1,59 @@
-const canvas = document.createElement("canvas");
+const canvas = document.querySelector("#tut");
 const ctx = canvas.getContext("2d");
 const deen = () => {
   document.getElementById("start_audio").currentTime = 0; //連続クリックに対応
   document.getElementById("start_audio").play();
 };
+const moji = (a, b = 1) => {
+  ctx.fillText(a, 40, 670 + 38 * (b - 1));
+};
+const e = () => {
+  ctx.clearRect(38, 630, 1320, 784);
+};
+function sleep(waitSec, callbackFunc) {
+  var spanedSec = 0;
+  var id = setInterval(function () {
+    spanedSec++;
+    if (spanedSec >= waitSec) {
+      clearInterval(id);
+      if (callbackFunc) callbackFunc();
+    }
+  }, 1000);
+}
+
+var img = new Image();
+img.src = "./DPvSJSy0cmo23mV1666610219_1666610254.png";
+
 const whatName = () => {
-  canvas.width = 900;
-  canvas.height = 400;
-  canvas.setAttribute(
-    "style",
-    "display:block;margin:auto;background-color: #ffffff"
-  );
-  console.log("hey");
+  canvas.width = 1400;
+  canvas.height = 784;
+  canvas.setAttribute("style", "margin:61px;background-color: #000000");
+  ctx.font = "40px dotfont";
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  moji("同士よ、私のパーフェクト計算教室にようこそ!諸君の名前はなんだね？");
+  document.querySelector("#tut").style.display = "block";
+  document.querySelector("#first").style.display = "none";
+  sleep(2, function () {
+    Swal.fire({
+      html: "<h1 style='color:#cd0000'>あなたの名前</h1>",
+      padding: "0rem",
+      backdrop: "rgba(80,80,80,0.99)",
+      background: "#ffd800",
+      input: "text",
+      inputValidator: (value) => {
+        if (!value || value.length > 8) {
+          return "八文字以下でオナシャス";
+        }
+      },
+    }).then((result) => {
+      name = result.value;
+      e();
+      moji(`${name}か、いい名前だな。よろしく頼むぞ${name}くん。`);
+      moji(`ああ私の名前はヨシフ...ん?スターリンだろって？`, 2);
+      moji(`違う違う私はジュガシヴィリだ。`, 3);
+    });
+  });
 };
 var epil =
   "第一次世界大戦後混沌としていたロシア帝国にある男が現れた。" +
@@ -25,6 +67,7 @@ document.querySelector("#start").addEventListener("click", (e) => {
 });
 
 window.onload = function () {
+  var name = "";
   deen();
   Swal.fire({
     html: `<h1  style="color:#cd0000">あらすじ</h1>

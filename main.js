@@ -34,7 +34,7 @@ const whatName = () => {
   moji("同士よ、私のパーフェクト計算教室にようこそ!諸君の名前はなんだね？");
   document.querySelector("#tut").style.display = "block";
   document.querySelector("#first").style.display = "none";
-  sleep(2, function () {
+  sleep(3, function () {
     Swal.fire({
       html: "<h1 style='color:#cd0000'>あなたの名前</h1>",
       padding: "0rem",
@@ -44,21 +44,29 @@ const whatName = () => {
       inputValidator: (value) => {
         if (
           !value ||
-          value.length > 8 ||
-          value == "トロツキー" ||
+          value == "" ||
+          value.length > 7 ||
+          value.includes("トロツキー") ||
           value == "チャーチル"
         ) {
-          if (value == "トロツキー" || value == "チャーチル") {
+          if (value.includes("トロツキー") || value == "チャーチル") {
             return "粛清確定な";
+          } else {
+            return "六文字以下で";
           }
         }
       },
     }).then((result) => {
-      name = result.value;
+      console.log(result.value == "");
+      name = result.value == "" ? "匿名" : result.value;
       e();
       moji(`${name}か、いい名前だな。よろしく頼むぞ${name}くん。`);
       moji(`ああ私の名前はヨシフ...ん?スターリンだろって？`, 2);
       moji(`違う違う私はジュガシヴィリだ。`, 3);
+      sleep(3, function () {
+        e();
+        moji("では、チュートリアルを始めよう。");
+      });
     });
   });
 };

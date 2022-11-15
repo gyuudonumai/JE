@@ -34,7 +34,7 @@ const whatName = () => {
   moji("同士よ、私のパーフェクト計算教室にようこそ!諸君の名前はなんだね？");
   document.querySelector("#tut").style.display = "block";
   document.querySelector("#first").style.display = "none";
-  sleep(3, function () {
+  sleep(5, function () {
     Swal.fire({
       html: "<h1 style='color:#cd0000'>あなたの名前</h1>",
       padding: "0rem",
@@ -63,7 +63,7 @@ const whatName = () => {
       moji(`${name}か、いい名前だな。よろしく頼むぞ${name}くん。`);
       moji(`ああ私の名前はヨシフ...ん?スターリンだろって？`, 2);
       moji(`違う違う私はジュガシヴィリだ。`, 3);
-      sleep(3, function () {
+      sleep(5, function () {
         e();
         moji("では、チュートリアルを始めよう。");
       });
